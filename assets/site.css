@@ -1,49 +1,55 @@
-/* Basic layout */
-:root {
-  --bg: #ffffff;
-  --ink: #222;
-  --muted: #666;
-  --brand: #1e5eff;
-  --panel: #f6f7fb;
-  --border: #e6e8ef;
+/* assets/site.css — minimal, business-clean look */
+
+:root{
+  --brand:#0b5fff;
+  --text:#111827;
+  --muted:#6b7280;
+  --bg:#ffffff;
+  --border:#e5e7eb;
+  --maxw:980px;
+  --pad:18px;
 }
 
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-a { color: var(--brand); text-decoration: none; }
-a:hover { text-decoration: underline; }
+*{box-sizing:border-box}
 
-.container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
-
-.site-header {
-  position: sticky; top: 0; z-index: 1000;
-  background: #fff; border-bottom: 1px solid var(--border);
+body{
+  margin:0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
 }
 
-.site-header .container {
-  display: flex; align-items: center; gap: 16px; height: 56px;
-}
+a{ color:#0b5fff; text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-.brand { font-weight: 700; font-size: 18px; color: var(--ink); }
-.nav { margin-left: auto; display: flex; gap: 14px; }
-.nav a { color: var(--ink); opacity: 0.9; }
-.nav a:hover { opacity: 1; text-decoration: underline; }
+.site-wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--pad); }
 
-.nav-toggle { display: none; margin-left: 8px; }
+/* Header */
+#site-header{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--border); }
+#site-header .bar{ height:60px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.brand{ font-weight:700; letter-spacing:.2px; }
+.main-nav a{ margin-left:14px; font-weight:500; color:#1f2937; }
+.main-nav a:hover{ color:var(--brand); text-decoration:none; }
 
 /* Footer */
-.site-footer { margin-top: 48px; border-top: 1px solid var(--border); background: #fff; }
-.site-footer .container { display: flex; align-items: center; gap: 12px; padding: 16px 16px; }
-.site-footer .footer-left { color: var(--muted); }
-.site-footer .footer-right { margin-left: auto; display: flex; flex-wrap: wrap; gap: 12px; }
+#site-footer{ margin-top:40px; border-top:1px solid var(--border); background:#fafafa; }
+#site-footer .foot{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; color:var(--muted); font-size:14px; }
+#site-footer .foot-nav a{ margin-left:12px; color:#4b5563; }
+#site-footer .foot-nav a:hover{ color:var(--brand); }
 
-/* Main content wrapper (injector adds class to body) */
-body.with-chrome main { display:block; }
-main .page { background: transparent; }
+/* Content */
+main .site-wrap{ padding-top:22px; padding-bottom:22px; }
 
-/* Responsive */
-@media (max-width: 760px) {
-  .nav { display: none; }
-  .nav.open { display: flex; flex-direction: column; position: absolute; right: 16px; top: 56px; background: #fff; border: 1px solid var(--border); padding: 8px 12px; }
-  .nav-toggle { display: inline-flex; border: 1px solid var(--border); background: var(--panel); padding: 6px 10px; border-radius: 6px; }
-}
+/* Card list on home */
+.post-list{ display:flex; flex-direction:column; gap:12px; margin:18px 0 32px; }
+.post-card{ padding:14px 16px; border:1px solid var(--border); border-radius:10px; background:#fff; }
+.post-card .meta{ font-size:12px; color:var(--muted); margin-top:4px; }
+
+/* Titles */
+h1{ font-size:28px; margin:12px 0 6px; }
+h2{ font-size:20px; margin:14px 0 8px; }
+h3{ font-size:16px; margin:12px 0 6px; }
+
+/* Kill any leftover inline breadcrumb rows if they survived build */
+p > a[href$="contact/"] + * { display:none; } /* coarse guard */
