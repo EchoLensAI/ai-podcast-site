@@ -1,64 +1,123 @@
-/* assets/site.css — minimal, business-clean look */
-
-:root{
-  --brand:#0b5fff;
-  --text:#111827;
-  --muted:#6b7280;
-  --bg:#ffffff;
-  --border:#e5e7eb;
-  --maxw:980px;
-  --pad:18px;
+/* Base Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #1a1a1a;
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
+a {
+  color: #0055aa; /* Brand blue */
+  text-decoration: none;
 }
 
-a{ color:#0b5fff; text-decoration:none; }
-a:hover{ text-decoration:underline; }
+a:hover {
+  text-decoration: underline;
+}
 
-.site-wrap{ max-width:var(--maxw); margin:0 auto; padding:0 var(--pad); }
+/* Container for layout centering */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
 
-/* Header */
-#site-header{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--border); }
-#site-header .bar{ height:60px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-.brand{ font-weight:700; letter-spacing:.2px; }
-.main-nav a{ margin-left:14px; font-weight:500; color:#1f2937; }
-.main-nav a:hover{ color:var(--brand); text-decoration:none; }
+/* Header & Nav */
+.site-header {
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #0055aa;
+  padding: 12px 0;
+}
+
+.site-header .brand {
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-right: 20px;
+  color: #0055aa;
+}
+
+.site-header .nav {
+  display: inline-block;
+}
+
+.site-header .nav a {
+  margin-right: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+.site-header .nav a.active {
+  color: #0055aa;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 
 /* Footer */
-#site-footer{ margin-top:40px; border-top:1px solid var(--border); background:#fafafa; }
-#site-footer .foot{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; color:var(--muted); font-size:14px; }
-#site-footer .foot-nav a{ margin-left:12px; color:#4b5563; }
-#site-footer .foot-nav a:hover{ color:var(--brand); }
+.site-footer {
+  border-top: 2px solid #0055aa;
+  background-color: #fafafa;
+  padding: 20px 0;
+  margin-top: 40px;
+}
 
-/* Content */
-main .site-wrap{ padding-top:22px; padding-bottom:22px; }
+.site-footer .muted {
+  color: #777;
+  margin-bottom: 8px;
+}
 
-/* Card list on home */
-.post-list{ display:flex; flex-direction:column; gap:12px; margin:18px 0 32px; }
-.post-card{ padding:14px 16px; border:1px solid var(--border); border-radius:10px; background:#fff; }
-.post-card .meta{ font-size:12px; color:var(--muted); margin-top:4px; }
+.site-footer .nav a {
+  margin-right: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
 
-/* Titles */
-h1{ font-size:28px; margin:12px 0 6px; }
-h2{ font-size:20px; margin:14px 0 8px; }
-h3{ font-size:16px; margin:12px 0 6px; }
+/* Headings */
+h1, h2, h3 {
+  font-weight: 600;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+  color: #003366; /* Darker brand blue */
+}
 
-/* Kill any leftover inline breadcrumb rows if they survived build */
-p > a[href$="contact/"] + * { display:none; } /* coarse guard */
+/* Lists for tags and posts */
+.tag-list,
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
 
-/* Tag & list styling */
-.tag-list, .post-list { list-style: none; padding: 0; margin: 0; }
-.tag-list li, .post-list li { padding: 10px 12px; border: 1px solid #eee; border-radius: 6px; margin: 10px 0; }
-.tag-list li a, .post-list li a { text-decoration: none; }
-.date { color: #777; font-size: .9rem; margin-left: 6px; }
-header .brand { font-weight: 600; margin: 12px 0; }
-.topnav, .footnav { font-size: .95rem; color: #666; margin: 6px 0 16px; }
-main { max-width: 860px; margin: 0 auto; padding: 12px 16px 40px; }
+.tag-list li,
+.post-list li {
+  margin: 10px 0;
+}
+
+.tag-list .count,
+.muted {
+  color: #777;
+  font-size: 0.9em;
+}
+
+/* Post cards (homepage and lists) */
+.post-list a {
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-header .nav {
+    margin-top: 8px;
+  }
+}
