@@ -1,0 +1,3 @@
+Sitemap: https://echolensai.github.io/ai-podcast-site/sitemap.xml
+User-agent: *
+Allow: /
