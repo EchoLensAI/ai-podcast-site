@@ -53,3 +53,12 @@ h3{ font-size:16px; margin:12px 0 6px; }
 
 /* Kill any leftover inline breadcrumb rows if they survived build */
 p > a[href$="contact/"] + * { display:none; } /* coarse guard */
+
+/* Tag & list styling */
+.tag-list, .post-list { list-style: none; padding: 0; margin: 0; }
+.tag-list li, .post-list li { padding: 10px 12px; border: 1px solid #eee; border-radius: 6px; margin: 10px 0; }
+.tag-list li a, .post-list li a { text-decoration: none; }
+.date { color: #777; font-size: .9rem; margin-left: 6px; }
+header .brand { font-weight: 600; margin: 12px 0; }
+.topnav, .footnav { font-size: .95rem; color: #666; margin: 6px 0 16px; }
+main { max-width: 860px; margin: 0 auto; padding: 12px 16px 40px; }
